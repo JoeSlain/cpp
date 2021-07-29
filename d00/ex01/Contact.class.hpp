@@ -13,7 +13,6 @@ class Contact {
 
 	Contact(void);
 	~Contact(void);
-	void Contact::update(char **args);
 };
 
 #endif
