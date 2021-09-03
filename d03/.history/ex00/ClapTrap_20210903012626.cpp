@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 18:24:18 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/03 01:27:19 by jcueille         ###   ########.fr       */
+/*   Updated: 2021/09/03 01:26:26 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &clp)
 {
 	if (this == &clp)
 		return (*this);
-	this->_name = clp._name;
-	this->_hitpoints = clp._hitpoints;
-	this->_energy_pts = clp._energy_pts;
-	this->_attack_dmg = clp._attack_dmg;
-	return (*this);
+	std::string _name;
+	this->_hitpoints = clp->_hitpoints;
+	this->_energy_pts = clp->
+	this->_attack_dmg = clp->
 }
