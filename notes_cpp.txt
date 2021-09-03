@@ -1,0 +1,8 @@
+D02
+
+Operator overload:
++ 1 1 prefix / fonctionelle + (1, 1) ou 1.+(1) ca ressemble a une fonction membre
+1 + 1 infix calcul sur pile
+1 1 + postfix 
+
+operator: permet de faire d'une fonction une surcharge d'operateur
