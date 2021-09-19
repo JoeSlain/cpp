@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 18:24:18 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/10 17:46:07 by jcueille         ###   ########.fr       */
+/*   Updated: 2021/09/10 13:27:29 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap( void ) : _hitpoints(100), _energy_pts(50), _attack_dmg(20)
 ClapTrap::ClapTrap(std::string name) : _hitpoints(100), _energy_pts(50), _attack_dmg(20)
 {
 	this->_name = name;
-	std::cout << "Name constructor called." << std::endl;
+	std::cout << "ClapTRap name constructor called." << std::endl;
 }
 ClapTrap::ClapTrap(ClapTrap const & clp)
 {
@@ -43,15 +43,4 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	std::cout << this->_name << " repairs " << amount << " energy points." << std::endl;
 	this->_energy_pts += amount;
-}
-
-ClapTrap &ClapTrap::operator=(ClapTrap const &clp)
-{
-	if (this == &clp)
-		return (*this);
-	this->_name = clp._name;
-	this->_hitpoints = clp._hitpoints;
-	this->_energy_pts = clp._energy_pts;
-	this->_attack_dmg = clp._attack_dmg;
-	return (*this);
 }

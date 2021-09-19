@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 18:24:18 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/10 17:46:07 by jcueille         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:45:19 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	this->_energy_pts += amount;
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap const &clp)
+ClapTrap::operator=()
 {
-	if (this == &clp)
-		return (*this);
-	this->_name = clp._name;
-	this->_hitpoints = clp._hitpoints;
-	this->_energy_pts = clp._energy_pts;
-	this->_attack_dmg = clp._attack_dmg;
-	return (*this);
+	
 }
