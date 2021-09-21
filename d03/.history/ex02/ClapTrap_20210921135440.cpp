@@ -6,7 +6,11 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 18:24:18 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/21 13:54:12 by jcueille         ###   ########.fr       */
+<<<<<<< HEAD
+/*   Updated: 2021/09/10 17:46:29 by jcueille         ###   ########.fr       */
+=======
+/*   Updated: 2021/09/03 15:19:06 by jcueille         ###   ########.fr       */
+>>>>>>> ee76c5e814c0850633e9b16cf2b2142b0e5fb0e8
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +20,17 @@ ClapTrap::ClapTrap( void ) : _hitpoints(100), _energy_pts(50), _attack_dmg(20)
 {
 	std::cout << "Default constructor called." << std::endl;
 }
+<<<<<<< HEAD
+ClapTrap::ClapTrap(std::string name) : _hitpoints(100), _energy_pts(50), _attack_dmg(20)
+{
+	this->_name = name;
+	std::cout << "ClapTrap name constructor called." << std::endl;
+=======
 ClapTrap::ClapTrap(std::string name, int _hitpoints, int _energy_pts, int _attack_dmg ) : _hitpoints(_hitpoints), _energy_pts(_energy_pts), _attack_dmg(_attack_dmg)
 {
 	this->_name = name;
 	std::cout << "ClapTrap constructor called." << std::endl;
+>>>>>>> ee76c5e814c0850633e9b16cf2b2142b0e5fb0e8
 }
 ClapTrap::ClapTrap(ClapTrap const & clp)
 {
