@@ -1,4 +1,0 @@
-SRCS_PATH= 
-
-all:
-	clang++ -g main.cpp Bureaucrat.cpp Form.cpp

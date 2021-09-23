@@ -2,4 +2,6 @@
 *.out
 *.o
 Phonebook
+d*/.history
+d*/.vscode
 
