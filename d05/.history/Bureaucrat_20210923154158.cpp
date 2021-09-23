@@ -1,14 +1,14 @@
-#include "ICharacter.hpp"
+#include "Bureaucrat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ICharacter::ICharacter()
+Bureaucrat::Bureaucrat()
 {
 }
 
-ICharacter::ICharacter( const ICharacter & src )
+Bureaucrat::Bureaucrat( const Bureaucrat & src )
 {
 }
 
@@ -17,7 +17,7 @@ ICharacter::ICharacter( const ICharacter & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ICharacter::~ICharacter()
+Bureaucrat::~Bureaucrat()
 {
 }
 
@@ -26,7 +26,7 @@ ICharacter::~ICharacter()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ICharacter &				ICharacter::operator=( ICharacter const & rhs )
+Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -35,7 +35,7 @@ ICharacter &				ICharacter::operator=( ICharacter const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, ICharacter const & i )
+std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;
@@ -45,7 +45,10 @@ std::ostream &			operator<<( std::ostream & o, ICharacter const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
+		const std::string getName();
+		int getGrade();
+		void increment();
+		void decrement();
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

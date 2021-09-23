@@ -1,2 +1,2 @@
 all:
-	clag++ main.cpp 
+	clang++ *.cpp

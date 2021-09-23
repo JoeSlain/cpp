@@ -1,0 +1,2 @@
+all:
+	clang++ -g main.cpp Bureaucrat.cpp Form.cpp

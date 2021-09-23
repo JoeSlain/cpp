@@ -1,0 +1,5 @@
+SRCS_PATH= srcs/
+
+all:
+	clang++ -g main.cpp 
+#${SRCS_PATH}Bureaucrat.cpp ${SRCS_PATH}Form.cpp
