@@ -26,6 +26,4 @@ class PresidentialPardonForm : public Form
 		
 };
 
-std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i );
-
 #endif /* ****************************************** PRESIDENTIALPARDONFORM_H */

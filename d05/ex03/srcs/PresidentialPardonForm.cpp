@@ -4,8 +4,9 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm() : _target("Default Target"), Form("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialPardonForm", 25, 5)
 {
+	this->_target = "Default target";
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src )
@@ -13,8 +14,10 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & s
 	*this = src;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : _target(target), Form("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5)
 {
+	this->_target = target;
+
 }
 
 /*
@@ -38,12 +41,6 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 	//}
 	this->_target = rhs._target;
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
 }
 
 

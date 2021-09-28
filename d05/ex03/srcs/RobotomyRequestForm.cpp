@@ -4,8 +4,9 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm() : _target("Default Target"), Form("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45)
 {
+	this->_target = "Default target";
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )
@@ -13,8 +14,9 @@ RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )
 	*this = src;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : _target(target), Form("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 72, 45)
 {
+	this->_target = target;
 }
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -37,12 +39,6 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 	//}
 	this->_target = rhs._target;
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
 }
 
 

@@ -1,10 +1,10 @@
-#include "ShrubberyCreationForm.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm:: ShrubberyCreationForm() : Form("ShrubberyCreation", 145)
+ShrubberyCreationForm:: ShrubberyCreationForm() : Form("ShrubberyCreation", 145, 137)
 {
 	this->_target = "Default target";
 }
@@ -14,7 +14,7 @@ ShrubberyCreationForm:: ShrubberyCreationForm( const  ShrubberyCreationForm & sr
 	*this = src;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : _target(target), Form("ShrubberyCreation", 145)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : _target(target), Form("ShrubberyCreation", 145, 137)
 {
 }
 
@@ -51,16 +51,26 @@ std::ostream &			operator<<( std::ostream & o,  ShrubberyCreationForm const & i 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void ShrubberyCreationForm::action()
+void ShrubberyCreationForm::action() const
 {
 	std::ofstream outfile(this->_target);
 
 	outfile << "      /\\    \n     /\\*\\    \n    /\\O\\*\\    \n   /*/\\/\\/\\   \n  /\\O\\/\\*\\/\\  \n /\\*\\/\\*\\/\\/\\ \n/\\O\\/\\/*/\\/O/\\ \n      ||      \n      ||      \n      || " << std::endl;
 }
 
+
+void ShrubberyCreationForm::execute (Bureaucrat const & executor) const
+{
+	Form::execute(executor);
+	this->action();
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
+std::string ShrubberyCreationForm::getTarget()
+{
+	return this->_target;
+}
 
 /* ************************************************************************** */
