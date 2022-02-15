@@ -1,11 +1,10 @@
 #include "Contact.class.hpp"
 
 Contact::Contact(void)
-{
-	return ;
-}
+{}
+
+Contact::Contact(int id) : id(id)
+{}
 
 Contact::~Contact(void)
-{
-	return ;
-}
+{}

@@ -4,13 +4,19 @@
 #include <string>
 
 class Phonebook {
-	public:
+	private:
 		int n;
+		int current;
 		Contact tab[8];
 
+	public:
 		Phonebook(void);
 		~Phonebook(void);
 
+		int get_n(void);
+		void set_n(int n);
+		int get_current(void);
+		void set_current(int n);
 		void print_contact(int n);
 		void print_contact_list(void);
 		void add(void);

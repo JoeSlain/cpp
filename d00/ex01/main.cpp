@@ -14,6 +14,8 @@ int main(void)
 	{
 		std::cout << "Enter a command:" << std::endl;
 		std::cin >> command;
+		if ( char *p = strchr( command, ' ' ) )
+			*p = '\0';
 		if (strcmp(command, "EXIT") == 0)
 			break ;
 		else if (strcmp(command, "ADD") == 0)

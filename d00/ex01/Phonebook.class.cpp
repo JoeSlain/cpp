@@ -3,45 +3,46 @@
 #include <iostream>
 #include <iomanip> 
 #include <string>
+#include <sstream>
 
-Phonebook::Phonebook(void)
-{
-	this->n = 1;
-	return ;
-}
+Phonebook::Phonebook(void) : n(0), current(0)
+{}
 
 Phonebook::~Phonebook(void)
-{
-	return ;
+{}
+
+static int stoi( std::string s ) {
+    int i;
+    std::istringstream(s) >> i;
+	std::cout << "i " << i << std::endl; 
+    return i;
 }
 
 void Phonebook::add(void)
 {
 	if (this->n == 9)
-	{
-		std::cout << "Your Phonebook is full you can't add any more entries" << std::endl;
-		return ;
-	}
+		this->current = 0;
 	std::cout << "enter firstname:" << std::endl;
-	std::cin >> this->tab[this->n - 1].firstname;
+	std::cin >> this->tab[this->current].firstname;
 	std::cout << "enter lastname:" << std::endl;
-	std::cin >> this->tab[this->n - 1].lastname;
+	std::cin >> this->tab[this-> current].lastname;
 	std::cout << "enter nickname:" << std::endl;
-	std::cin >> this->tab[this->n - 1].nickname;
+	std::cin >> this->tab[this-> current].nickname;
 	std::cout << "enter phone number:" << std::endl;
-	std::cin >> this->tab[this->n - 1].phone;
+	std::cin >> this->tab[this-> current].phone;
 	std::cout << "enter its darkest secret:" << std::endl;
-	std::cin >> this->tab[this->n - 1].secret;
-	this->n += 1;
+	std::cin >> this->tab[this-> current].secret;
+	this->tab[this->current].id = current + 1;
+	this->n++;
+	this->current++;
 }
 
 void Phonebook::print_contact_list(void)
 {
-	for (int i = 0; i < this->n - 1; i++)
+	for (int i = 0; i < this->n ; i++)
 	{
-		if (this->n != 8 && i == this->n - 1)
-			break;
-		ft_output(std::to_string(i + 1));
+
+		std::cout << this->tab[i].id;
 		std::cout << "|";
 		ft_output(this->tab[i].firstname);
 		std::cout << "|";
@@ -55,7 +56,7 @@ void Phonebook::print_contact_list(void)
 
 void Phonebook::print_contact(int n)
 {
-		std::cout << std::to_string(n) << std::endl;
+		std::cout << n << std::endl;
 		std::cout << "firstname : " << this->tab[n - 1].firstname << std::endl;
 		std::cout << "lastname : " << this->tab[n - 1].lastname << std::endl;
 		std::cout << "nickname : " << this->tab[n - 1].nickname << std::endl;
@@ -78,10 +79,22 @@ void Phonebook::search(void)
 	this->print_contact_list();
 	std::cout << "Selectionnez un index" << std::endl;
 	std::cin >> input;
-	while (input.length() != 1 || !isdigit(input[0]) || std::stoi(input) < 1 || std::stoi(input) > this->n)
+	try {
+		stoi(input);
+	}
+	catch (std::invalid_argument){
+		std::cout << "wrong char for index" << std::endl;
+		return ;
+	}
+	if (stoi(input) > this->n)
 	{
-		std::cout << "wrong input, please try again between" << std::endl;
+		std::cout << "index does not exist" << std::endl;
+		return ;
+	}
+	while (input.length() != 1 || !isdigit(input[0]) || stoi(input) < 1)
+	{
+		std::cout << "wrong input." << std::endl;
 		std::cin >> input;
 	}
-	print_contact(std::stoi(input));
+	print_contact(stoi(input));
 }
