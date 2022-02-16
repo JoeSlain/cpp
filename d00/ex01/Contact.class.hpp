@@ -3,17 +3,25 @@
 
 
 class Contact {
-	public:
-
-	char	firstname[1024];
-	char	lastname[1024];
-	char	nickname[1024];
-	char	phone[1024];
-	char	secret[1024];
+	private:
+	char	*firstname;
+	char	*lastname;
+	char	*nickname;
+	char	*phone;
+	char	*secret;
 	int		id;
 
+	public:
+	char	*get_firstname(void);
+	char	*get_lastname(void);
+	char	*get_nickname(void);
+	char	*get_phone(void);
+	char	*get_secret(void);
+	int		get_id(void);
+
+	
 	Contact(void);
-	Contact(int id);
+	Contact(char *first, char *last, char *nick, char *phone, char *secret, int id);
 	~Contact(void);
 };
 

@@ -7,8 +7,9 @@
 
 int main(void)
 {
-	Phonebook book;
-	char command[512];
+	Phonebook 	book;
+	int			*current;
+	char 		command[512];
 
 	while (1)
 	{
@@ -18,7 +19,7 @@ int main(void)
 			*p = '\0';
 		if (strcmp(command, "EXIT") == 0)
 			break ;
-		else if (strcmp(command, "ADD") == 0)
+		else if (strcmp(command, "ADD", &current) == 0)
 			book.add();
 		else if (strcmp(command, "SEARCH") == 0)
 			book.search();

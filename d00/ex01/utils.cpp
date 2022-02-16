@@ -7,7 +7,7 @@ void ft_output( std::string s )
 {
 	if (s.length() <= 10)
 	{
-		std::cout << std::setfill(' ') << std::setw(10);
+		std::cout << std::setw(10);
 		std::cout << s;
 	}
 	else if (s.length() > 10)

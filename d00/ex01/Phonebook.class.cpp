@@ -5,6 +5,7 @@
 #include <string>
 #include <sstream>
 
+/* CONSTRUCTOR */
 Phonebook::Phonebook(void) : n(0), current(0)
 {}
 
@@ -18,20 +19,42 @@ static int stoi( std::string s ) {
     return i;
 }
 
+/* GETTER / SETTER */
+
+int Phonebook::get_n(void)
+{
+	return this->n;
+}
+void Phonebook::set_n(int n)
+{
+	this->n = n;
+}
+int Phonebook::get_current(void)
+{
+	return this->current;
+}
+void Phonebook::set_current(int n)
+{
+	this->current = n;
+}
+
+/* PUBLIC FUNCTIONS */
 void Phonebook::add(void)
 {
+	char data[5];
 	if (this->n == 9)
 		this->current = 0;
 	std::cout << "enter firstname:" << std::endl;
-	std::cin >> this->tab[this->current].firstname;
+	std::cin >> data[0];
 	std::cout << "enter lastname:" << std::endl;
-	std::cin >> this->tab[this-> current].lastname;
+	std::cin >> data[1];
 	std::cout << "enter nickname:" << std::endl;
-	std::cin >> this->tab[this-> current].nickname;
+	std::cin >> data[2];
 	std::cout << "enter phone number:" << std::endl;
-	std::cin >> this->tab[this-> current].phone;
+	std::cin >> data[3];
 	std::cout << "enter its darkest secret:" << std::endl;
-	std::cin >> this->tab[this-> current].secret;
+	std::cin >> data[4];
+	
 	this->tab[this->current].id = current + 1;
 	this->n++;
 	this->current++;
@@ -42,13 +65,13 @@ void Phonebook::print_contact_list(void)
 	for (int i = 0; i < this->n ; i++)
 	{
 
-		std::cout << this->tab[i].id;
+		std::cout << this->tab[i].get_id();
 		std::cout << "|";
-		ft_output(this->tab[i].firstname);
+		ft_output(this->tab[i].get_firstname());
 		std::cout << "|";
-		ft_output(this->tab[i].lastname);
+		ft_output(this->tab[i].get_lastname());
 		std::cout << "|";
-		ft_output(this->tab[i].nickname);
+		ft_output(this->tab[i].get_nickname());
 		std::cout << "|";
 		std::cout << std::endl;
 	}
@@ -57,11 +80,11 @@ void Phonebook::print_contact_list(void)
 void Phonebook::print_contact(int n)
 {
 		std::cout << n << std::endl;
-		std::cout << "firstname : " << this->tab[n - 1].firstname << std::endl;
-		std::cout << "lastname : " << this->tab[n - 1].lastname << std::endl;
-		std::cout << "nickname : " << this->tab[n - 1].nickname << std::endl;
-		std::cout << "phone number : " << this->tab[n - 1].phone << std::endl;
-		std::cout << "darkest secret : " << this->tab[n - 1].secret << std::endl;
+		std::cout << "firstname : " << this->tab[n - 1].get_firstname() << std::endl;
+		std::cout << "lastname : " << this->tab[n - 1].get_lastname() << std::endl;
+		std::cout << "nickname : " << this->tab[n - 1].get_nickname() << std::endl;
+		std::cout << "phone number : " << this->tab[n - 1].get_phone() << std::endl;
+		std::cout << "darkest secret : " << this->tab[n - 1].get_secret() << std::endl;
 }
 
 void Phonebook::search(void)
