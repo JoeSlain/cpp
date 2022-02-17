@@ -11,6 +11,5 @@ void ft_output( std::string s )
 		std::cout << s;
 	}
 	else if (s.length() > 10)
-		std::cout << s.substr(0, 8) << ".";
+		std::cout << s.substr(0, 9) << ".";
 }
-

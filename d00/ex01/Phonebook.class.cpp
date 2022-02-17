@@ -2,8 +2,11 @@
 #include "utils.hpp"
 #include <iostream>
 #include <iomanip> 
-#include <string>
+#include <cstring>
+#include <climits>
 #include <sstream>
+#include <stdlib.h>
+#include <cerrno>
 
 /* CONSTRUCTOR */
 Phonebook::Phonebook(void) : n(0), current(0)
@@ -12,13 +15,14 @@ Phonebook::Phonebook(void) : n(0), current(0)
 Phonebook::~Phonebook(void)
 {}
 
+/*
 static int stoi( std::string s ) {
     int i;
     std::istringstream(s) >> i;
 	std::cout << "i " << i << std::endl; 
     return i;
 }
-
+*/
 /* GETTER / SETTER */
 
 int Phonebook::get_n(void)
@@ -41,21 +45,36 @@ void Phonebook::set_current(int n)
 /* PUBLIC FUNCTIONS */
 void Phonebook::add(void)
 {
-	char data[5];
-	if (this->n == 9)
+	std::string tmp;
+
+	if (this->current == 8)
 		this->current = 0;
 	std::cout << "enter firstname:" << std::endl;
-	std::cin >> data[0];
+	std::getline(std::cin, tmp);
+	if (std::cin.eof())
+		return ;
+	this->tab[current].set_firstname(tmp);
 	std::cout << "enter lastname:" << std::endl;
-	std::cin >> data[1];
+	std::getline(std::cin, tmp);
+	if (std::cin.eof())
+		return ;
+	this->tab[current].set_lastname(tmp);
 	std::cout << "enter nickname:" << std::endl;
-	std::cin >> data[2];
+	std::getline(std::cin, tmp);
+	if (std::cin.eof())
+		return ;
+	this->tab[current].set_nickname(tmp);
 	std::cout << "enter phone number:" << std::endl;
-	std::cin >> data[3];
+	std::getline(std::cin, tmp);
+	if (std::cin.eof())
+		return ;
+	this->tab[current].set_phone(tmp);
 	std::cout << "enter its darkest secret:" << std::endl;
-	std::cin >> data[4];
-	
-	this->tab[this->current].id = current + 1;
+	std::getline(std::cin, tmp);
+	if (std::cin.eof())
+		return ;
+	this->tab[current].set_secret(tmp);
+	this->tab[this->current].set_id(current + 1);
 	this->n++;
 	this->current++;
 }
@@ -65,6 +84,7 @@ void Phonebook::print_contact_list(void)
 	for (int i = 0; i < this->n ; i++)
 	{
 
+		std::cout << std::setw(10);
 		std::cout << this->tab[i].get_id();
 		std::cout << "|";
 		ft_output(this->tab[i].get_firstname());
@@ -84,40 +104,40 @@ void Phonebook::print_contact(int n)
 		std::cout << "lastname : " << this->tab[n - 1].get_lastname() << std::endl;
 		std::cout << "nickname : " << this->tab[n - 1].get_nickname() << std::endl;
 		std::cout << "phone number : " << this->tab[n - 1].get_phone() << std::endl;
-		std::cout << "darkest secret : " << this->tab[n - 1].get_secret() << std::endl;
+		std::cout << "darkest secret : " << this->tab[n - 1].get_secret() << "\n" << std::endl;
 }
 
 void Phonebook::search(void)
 {
 	std::string input;
+	char 		*p;
+	long int	n;
 
-	ft_output("index");
-	std::cout << "|";
-	ft_output("firstname");
-	std::cout << "|";
-	ft_output("lastname");
-	std::cout << "|";
-	ft_output("nickname");
-	std::cout << "|" << std::endl;
-	this->print_contact_list();
-	std::cout << "Selectionnez un index" << std::endl;
-	std::cin >> input;
-	try {
-		stoi(input);
-	}
-	catch (std::invalid_argument){
-		std::cout << "wrong char for index" << std::endl;
-		return ;
-	}
-	if (stoi(input) > this->n)
+	while (1)
 	{
-		std::cout << "index does not exist" << std::endl;
-		return ;
+		std::cout << "\nSelectionnez un index\nPress 0 to exit\n" << std::endl;
+		ft_output("index");
+		std::cout << "|";
+		ft_output("firstname");
+		std::cout << "|";
+		ft_output("lastname");
+		std::cout << "|";
+		ft_output("nickname");
+		std::cout << "|" << std::endl;
+
+
+		this->print_contact_list();
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return ;
+		n = strtol(input.c_str(), &p, 10);
+		if (n > INT_MAX || errno == ERANGE || n > this->n || n < 0)
+		{
+			std::cout << "\n\x1B[91mWrong index input please choose again:\033[0m\n" << std::endl;
+			continue ;
+		}
+		break;
 	}
-	while (input.length() != 1 || !isdigit(input[0]) || stoi(input) < 1)
-	{
-		std::cout << "wrong input." << std::endl;
-		std::cin >> input;
-	}
-	print_contact(stoi(input));
+	if (n != 0)
+		print_contact((int)n);
 }

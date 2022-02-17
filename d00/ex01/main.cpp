@@ -8,20 +8,19 @@
 int main(void)
 {
 	Phonebook 	book;
-	int			*current;
-	char 		command[512];
+	std::string	command;
 
 	while (1)
 	{
 		std::cout << "Enter a command:" << std::endl;
-		std::cin >> command;
-		if ( char *p = strchr( command, ' ' ) )
-			*p = '\0';
-		if (strcmp(command, "EXIT") == 0)
+		std::getline(std::cin, command);
+		if (std::cin.eof())
+			return 0;
+		if (command == "EXIT")
 			break ;
-		else if (strcmp(command, "ADD", &current) == 0)
+		else if (command == "ADD")
 			book.add();
-		else if (strcmp(command, "SEARCH") == 0)
+		else if (command == "SEARCH")
 			book.search();
 		else
 			std::cout << "Unknown command please use EXIT, ADD or SEARCH." << '\n' << std::endl;
