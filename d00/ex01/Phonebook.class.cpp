@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <cerrno>
 
+#define CONTACT_LIMIT 8
+
 /* CONSTRUCTOR */
 Phonebook::Phonebook(void) : n(0), current(0)
 {}
@@ -15,14 +17,6 @@ Phonebook::Phonebook(void) : n(0), current(0)
 Phonebook::~Phonebook(void)
 {}
 
-/*
-static int stoi( std::string s ) {
-    int i;
-    std::istringstream(s) >> i;
-	std::cout << "i " << i << std::endl; 
-    return i;
-}
-*/
 /* GETTER / SETTER */
 
 int Phonebook::get_n(void)
@@ -47,7 +41,7 @@ void Phonebook::add(void)
 {
 	std::string tmp;
 
-	if (this->current == 8)
+	if (this->current == CONTACT_LIMIT)
 		this->current = 0;
 	std::cout << "enter firstname:" << std::endl;
 	std::getline(std::cin, tmp);
@@ -75,7 +69,8 @@ void Phonebook::add(void)
 		return ;
 	this->tab[current].set_secret(tmp);
 	this->tab[this->current].set_id(current + 1);
-	this->n++;
+	if (n != CONTACT_LIMIT)
+		this->n++;
 	this->current++;
 }
 

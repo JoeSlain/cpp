@@ -23,7 +23,7 @@ int main(void)
 		else if (command == "SEARCH")
 			book.search();
 		else
-			std::cout << "Unknown command please use EXIT, ADD or SEARCH." << '\n' << std::endl;
+			std::cout << "\x1B[91mUnknown command please use EXIT, ADD or SEARCH.\033[0m" << '\n' << std::endl;
 	}
 	return (0);
 }
