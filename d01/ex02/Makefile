@@ -1,2 +1,2 @@
 all:
-	clang++ -Wall -Werror -Wextra main.cpp
+	clang++ -std=c++98 -Wall -Werror -Wextra main.cpp

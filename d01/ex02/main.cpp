@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 20:00:50 by jcueille          #+#    #+#             */
-/*   Updated: 2021/08/10 20:21:41 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/17 19:54:31 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main ( void )
 	std::cout << &str << std::endl;
 	std::cout << stringPTR << std::endl;
 	std::cout << &stringREF << std::endl;
+
+	std::cout << str << std::endl;
 	std::cout << *stringPTR << std::endl;
 	std::cout << stringREF << std::endl;
 	return (0);
