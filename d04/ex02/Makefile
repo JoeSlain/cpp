@@ -1,2 +1,2 @@
 all:
-	clang++ -Werror -Wall -Wextra main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+	clang++ -std=c++98 -Werror -Wall -Wextra main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
