@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:04:34 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/22 00:45:10 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:54:48 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main()
 	}
 	for (int i = 0; i < SIZE; i++)
 		delete tab[i];
-	std::cout << "=======" << std::endl;
+	std::cout << "*****==" << std::endl;
 	Dog *doggo = new Dog();
 	for (int i = 0; i < 100; i++)
 		std::cout << doggo->get_brain().getIdea(i) << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 15:39:06 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/20 15:00:52 by jcueille         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:01:06 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRAGTRAP_HPP
 #include "ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap {
+class FragTrap : public ClapTrap {
 	public:
 		FragTrap( void );
 		FragTrap(std::string name);

@@ -1,2 +1,0 @@
-all:
-	clang++ -Wall -Werror -Wextra main.cpp Fixed.cpp

@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 18:24:18 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/21 15:55:25 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:28:09 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,23 @@
 
 ClapTrap::ClapTrap( void ) : _hitpoints(10), _energy_pts(10), _attack_dmg(0)
 {
-	std::cout << "Default constructor called." << std::endl;
+	std::cout << "ClapTrap default constructor called." << std::endl;
 }
 ClapTrap::ClapTrap(std::string name) : _hitpoints(10), _energy_pts(10), _attack_dmg(0)
 {
 	this->_name = name;
-	std::cout << "Name constructor called." << std::endl;
+	std::cout << "ClapTrap name constructor called." << std::endl;
 }
+ClapTrap::ClapTrap(int hp, int ep, int ad) : _hitpoints(hp), _energy_pts(ep), _attack_dmg(ad)
+{
+	std::cout << "ClapTrap constructor called." << std::endl;
+}
+
+ClapTrap::ClapTrap(int hp, int ep, int ad, std::string n) : _name(n), _hitpoints(hp), _energy_pts(ep), _attack_dmg(ad)
+{
+	std::cout << "ClapTrap constructor called." << std::endl;
+}
+
 ClapTrap::ClapTrap(ClapTrap const & clp)
 {
 	std::cout << "Copy constructor called." << std::endl;
@@ -28,7 +38,7 @@ ClapTrap::ClapTrap(ClapTrap const & clp)
 }
 ClapTrap::~ClapTrap( void )
 {
-	std::cout << "Destructor called." << std::endl;
+	std::cout << "ClapTrap destructor called." << std::endl;
 }
 void ClapTrap::attack(std::string const & target)
 {
@@ -82,6 +92,31 @@ void ClapTrap::beRepaired(unsigned int amount)
 int ClapTrap::get_hitpoints(void)
 {
 	return this->_hitpoints;
+}
+
+int ClapTrap::get_attack_dmg( void )
+{
+	return this->_attack_dmg;
+}
+
+int ClapTrap::get_energy_pts( void )
+{
+	return this->_energy_pts;
+}
+
+std::string ClapTrap::get_name( void )
+{
+	return this->_name;
+}
+
+void ClapTrap::set_name(std::string name)
+{
+	this->_name = name;
+}
+
+void ClapTrap::set_energy_pts(int n)
+{
+	this->_energy_pts = n;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &clp)

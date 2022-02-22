@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 18:45:36 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/21 15:57:03 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:54:48 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main()
 {
 	{
-		std::cout << "===== Energy limit test =====" << std::endl;
+		std::cout << "***** Energy limit test *****" << std::endl;
 		ClapTrap Jumbo = ClapTrap("Jumbo");
 		Jumbo.attack("Test");
 		Jumbo.beRepaired(0);

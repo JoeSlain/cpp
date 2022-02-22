@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 13:53:09 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/20 15:19:44 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:02:46 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ class DiamondTrap : public FragTrap, public ScavTrap {
 		~DiamondTrap();
 		DiamondTrap &operator=(DiamondTrap const &obj);
 		
+		std::string get_name(void);		
+		int get_attack_dmg(void);
+		int get_hitpoints(void);
+		int get_energy_pts(void);
+
+		void set_name(std::string n);
+		void set_attack_dmg(int n);
+		void set_energy_points(int n);
+		void set_hitpoints(int n);	
+
 		void attack(std::string const & target);
 		void whoAmI();
 

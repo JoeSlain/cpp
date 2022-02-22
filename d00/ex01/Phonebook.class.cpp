@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iomanip> 
 #include <cstring>
+#include <cctype>
 #include <climits>
 #include <sstream>
 #include <stdlib.h>
@@ -36,6 +37,51 @@ void Phonebook::set_current(int n)
 	this->current = n;
 }
 
+static int is_empty(std::string s)
+{
+	if (s.empty() || s.find_first_not_of(' ') == std::string::npos)
+	{
+		std::cout << "\n\x1B[91mEmpty input forbidden\033[0m\n" << std::endl;
+		return 1;
+	}
+	return 0;
+}
+
+static void add_input(std::string message, int i, Contact & contact)
+{
+	std::string input;
+	while (1)
+	{
+		std::cout << message << std::endl;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return ;
+		if (is_empty(input))
+			continue ;
+		switch (i)
+		{
+		case 1:
+			contact.set_firstname(input);
+			break;
+		case 2:
+			contact.set_lastname(input);
+			break;
+		case 3:
+			contact.set_nickname(input);
+			break;
+		case 4:
+			contact.set_phone(input);
+			break;
+		case 5:
+			contact.set_secret(input);
+			break;	
+		default:
+			break;
+		}
+		break;
+	}
+}
+
 /* PUBLIC FUNCTIONS */
 void Phonebook::add(void)
 {
@@ -43,31 +89,12 @@ void Phonebook::add(void)
 
 	if (this->current == CONTACT_LIMIT)
 		this->current = 0;
-	std::cout << "enter firstname:" << std::endl;
-	std::getline(std::cin, tmp);
-	if (std::cin.eof())
-		return ;
-	this->tab[current].set_firstname(tmp);
-	std::cout << "enter lastname:" << std::endl;
-	std::getline(std::cin, tmp);
-	if (std::cin.eof())
-		return ;
-	this->tab[current].set_lastname(tmp);
-	std::cout << "enter nickname:" << std::endl;
-	std::getline(std::cin, tmp);
-	if (std::cin.eof())
-		return ;
-	this->tab[current].set_nickname(tmp);
-	std::cout << "enter phone number:" << std::endl;
-	std::getline(std::cin, tmp);
-	if (std::cin.eof())
-		return ;
-	this->tab[current].set_phone(tmp);
-	std::cout << "enter its darkest secret:" << std::endl;
-	std::getline(std::cin, tmp);
-	if (std::cin.eof())
-		return ;
-	this->tab[current].set_secret(tmp);
+	add_input("enter firstname: ", 1, this->tab[current]);
+	add_input("enter lastname: ", 2, this->tab[current]);
+	add_input("enter nickname: " , 3, this->tab[current]);
+	add_input("enter phone number:" , 4, this->tab[current]);
+	add_input("enter drakest secret:" , 5, this->tab[current]);
+
 	this->tab[this->current].set_id(current + 1);
 	if (n != CONTACT_LIMIT)
 		this->n++;
@@ -125,6 +152,11 @@ void Phonebook::search(void)
 		std::getline(std::cin, input);
 		if (std::cin.eof())
 			return ;
+		if (input.find_first_not_of("0123456789") != std::string::npos)
+		{
+			std::cout << "\n\x1B[91mWrong index input please choose again:\033[0m\n" << std::endl;
+			continue ;
+		}
 		n = strtol(input.c_str(), &p, 10);
 		if (n > INT_MAX || errno == ERANGE || n > this->n || n < 0)
 		{
