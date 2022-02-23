@@ -3,7 +3,7 @@ CC = clang++
 FLAGS =  -Wall -Werror -Wextra -std=c++98 -g -fsanitize=address
 SRCS_FILES = Account.cpp tests.cpp
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJS_PATH = ./obj/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS_FILES:.cpp=.o}}

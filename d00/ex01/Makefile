@@ -4,7 +4,7 @@ FLAGS =  -Wall -Werror -Wextra -std=c++98 -g -fsanitize=address
 SRCS_FILES = main.cpp Phonebook.class.cpp Contact.class.cpp utils.cpp
 
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJS_PATH = ./obj/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS_FILES:.cpp=.o}}

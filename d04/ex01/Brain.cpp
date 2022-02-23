@@ -9,7 +9,7 @@ Brain::Brain()
 	std::cout << "Brain default constructor called." << std::endl;
 	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
-		this->ideas[i] = "Idea" + std::to_string(i);
+		this->ideas[i] = "Idea" + i;
 }
 
 Brain::Brain( const Brain & src )
