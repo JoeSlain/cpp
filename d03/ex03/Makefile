@@ -1,2 +1,2 @@
 all:
-	clang++ -Wall -std=c++98 -Werror -Wextra main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+	clang++ -g -Wall -std=c++98 -Werror -Wextra main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp

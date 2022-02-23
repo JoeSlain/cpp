@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:54:47 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/22 18:09:52 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/23 15:11:59 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
 	std::cout << "DiamondTrap default constructor called." << std::endl;
 	this->_name = "Default DiamondName";
-	this->set_hitpoints(FragTrap::get_hitpoints());
-	this->set_energy_pts(ScavTrap::get_energy_pts());
-	this->set_attack_dmg( FragTrap::get_attack_dmg());
+	_hitpoints = 100;
+	_energy_pts = 50;
+	_attack_dmg = 30;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name + "_clap_name"), ScavTrap(name + "_clap_name")
 {
 	std::cout << "DiamondTrap name constructor called." << std::endl;
 	this->_name = name;
-	this->set_hitpoints(FragTrap::get_hitpoints());
-	this->_energy_pts = ScavTrap::_energy_pts;
-	this->_attack_dmg = FragTrap::_attack_dmg;
+	this->_hitpoints = 100;
+	this->_energy_pts = 50;
+	this->_attack_dmg = 30;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const & obj)
+DiamondTrap::DiamondTrap(DiamondTrap const & obj) : ClapTrap(obj.get_name() + "_clap_name"), FragTrap(obj.get_name() + "_clap_name"), ScavTrap(obj.get_name() + "_clap_name")
 {
 	std::cout << "DiamondTrap copy constructor called." << std::endl;
 	*this = obj;
@@ -46,7 +46,7 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &obj)
 	if (this == &obj)
 		return (*this);
 	this->_name = obj._name;
-	this->get_hitpoints() = obj.get_hitpoints();
+	this->_hitpoints = obj._hitpoints;
 	this->_energy_pts = obj._energy_pts;
 	this->_attack_dmg = obj._attack_dmg;
 	return (*this);
@@ -62,7 +62,7 @@ void DiamondTrap::whoAmI()
 	std::cout << "Claptrap's name is: " << ClapTrap::get_name() << " DiamondTrap name is: " << this->_name << std::endl;
 }
 
-std::string DiamondTrap::get_name(void)
+std::string DiamondTrap::get_name(void) const
 {
 	return this->_name ;
 }
@@ -72,14 +72,9 @@ int DiamondTrap::get_attack_dmg(void)
 }
 int DiamondTrap::get_hitpoints(void)
 {
-	return this->_ ;
+	return this->_hitpoints ;
 }
 int DiamondTrap::get_energy_pts(void)
 {
-	return this->_ ;
+	return this->_energy_pts ;
 }
-
-void DiamondTrap::set_name(std::string n);
-void DiamondTrap::set_attack_dmg(int n);
-void DiamondTrap::set_energy_points(int n);
-void DiamondTrap::set_hitpoints(int n);

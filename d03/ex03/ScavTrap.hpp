@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 15:39:06 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/02 16:29:03 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/23 12:59:13 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ScavTRAP_HPP
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 	public:
 	ScavTrap( void );
 	ScavTrap(std::string name);
