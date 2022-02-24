@@ -6,11 +6,11 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:28:27 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 17:40:47 by jcueille         ###   ########.fr       */
+/*   Updated: 2021/09/23 20:59:31 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Form.hpp"
+#include "Form.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -27,14 +27,13 @@ Form::Form( const Form & src )
 	*this = src;
 }
 
-Form::Form( std::string name, int grade, int gradeToExec ) : _name(name)
+Form::Form( std::string name, int grade ) : _name(name)
 {
-	if (grade < 1 || gradeToExec < 1)
+	if (grade < 1)
 		throw Form::GradeTooHighException();
-	if (grade > 150 || gradeToExec > 150)
+	if (grade > 150)
 		throw Form::GradeTooLowException();
-	this->_sign_grade = grade;
-	this->_gradeToExec = gradeToExec;
+	this->_requiredGrade = grade;
 }
 
 /*
@@ -57,7 +56,7 @@ Form &				Form::operator=( Form const & rhs )
 		//this->_value = rhs.getValue();
 	//}
 	this->_state = rhs._state;
-	this->_sign_grade = rhs._sign_grade;
+	this->_requiredGrade = rhs._requiredGrade;
 	this->_name = rhs._name;
 	return *this;
 }
@@ -74,34 +73,26 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 */
 void Form::beSigned(Bureaucrat & obj)
 {
-	if (obj.getGrade() >= this->_sign_grade)
+	if (obj.getGrade() >= this->_requiredGrade)
 		throw Form::GradeTooLowException();
 	this->_state = true;
 
 }
 
-void Form::execute (Bureaucrat const & executor) const
-{
-	if (this->_gradeToExec < executor.getGrade())
-		throw Form::GradeTooLowException();
-	if (this->_state == false)
-		throw Form::FormNotSignedException();
-}	
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-	std::string const  & Form::getName() const
-	{
-		return (this->_name);
-	}
-	int const  & Form::getGrade() const
-	{
-		return (this->_sign_grade);
-	}
-	bool const & Form::getState() const
-	{
-		return (this->_state);
-	}
+		std::string const  & Form::getName() const
+		{
+			return (this->_name);
+		}
+		int const  & Form::getGrade() const
+		{
+			return (this->_requiredGrade);
+		}
+		bool const & Form::getState() const
+		{
+			return (this->_state);
+		}
 
 /* ************************************************************************** */

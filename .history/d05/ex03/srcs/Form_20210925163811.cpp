@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:28:27 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 17:40:47 by jcueille         ###   ########.fr       */
+/*   Updated: 2021/09/24 16:17:58 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Form::Form( std::string name, int grade, int gradeToExec ) : _name(name)
 		throw Form::GradeTooHighException();
 	if (grade > 150 || gradeToExec > 150)
 		throw Form::GradeTooLowException();
-	this->_sign_grade = grade;
+	this->_requiredGrade = grade;
 	this->_gradeToExec = gradeToExec;
 }
 
@@ -57,7 +57,7 @@ Form &				Form::operator=( Form const & rhs )
 		//this->_value = rhs.getValue();
 	//}
 	this->_state = rhs._state;
-	this->_sign_grade = rhs._sign_grade;
+	this->_requiredGrade = rhs._requiredGrade;
 	this->_name = rhs._name;
 	return *this;
 }
@@ -74,7 +74,7 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 */
 void Form::beSigned(Bureaucrat & obj)
 {
-	if (obj.getGrade() >= this->_sign_grade)
+	if (obj.getGrade() >= this->_requiredGrade)
 		throw Form::GradeTooLowException();
 	this->_state = true;
 
@@ -97,7 +97,7 @@ void Form::execute (Bureaucrat const & executor) const
 	}
 	int const  & Form::getGrade() const
 	{
-		return (this->_sign_grade);
+		return (this->_requiredGrade);
 	}
 	bool const & Form::getState() const
 	{

@@ -3,7 +3,7 @@
 
 # include <iostream>
 # include <string>
-# include "Bureaucrat.hpp"
+# include "../includes/Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -28,37 +28,25 @@ class Form
 			}
 	};
 
-	class FormNotSignedException : public std::exception
-	{
-		public:
-			virtual const char* what() const throw()
-			{
-				return ("Form not signed.");
-			}
-	};
-
 	public:
 
 		Form();
 		Form( Form const & src );
-		Form( std::string name, int grade, int gradeToExec );
-		virtual ~Form();
+		Form( std::string name, int sign_grade, int exec_grade );
+		~Form();
 
 		std::string const  & getName() const;
 		int const  & getGrade() const;
 		bool const & getState() const;
 		void beSigned(Bureaucrat & obj);
-		virtual void execute (Bureaucrat const & executor) const;
-		virtual std::string getTarget() = 0;
 
 		Form &		operator=( Form const & rhs );
 
 	private:
-		std::string _name;
+		const std::string _name;
 		bool _state;
-		int _sign_grade;
-		int _gradeToExec;
-		std::string _target;
+		const int _sign_grade;
+		const int _exec_grade;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

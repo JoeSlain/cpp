@@ -6,11 +6,11 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:28:27 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 17:40:47 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/24 20:48:27 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Form.hpp"
+#include "Form.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -27,14 +27,13 @@ Form::Form( const Form & src )
 	*this = src;
 }
 
-Form::Form( std::string name, int grade, int gradeToExec ) : _name(name)
+Form::Form( std::string name, int grade ) : _name(name)
 {
-	if (grade < 1 || gradeToExec < 1)
+	if (grade < 1)
 		throw Form::GradeTooHighException();
-	if (grade > 150 || gradeToExec > 150)
+	if (grade > 150)
 		throw Form::GradeTooLowException();
 	this->_sign_grade = grade;
-	this->_gradeToExec = gradeToExec;
 }
 
 /*
@@ -80,14 +79,6 @@ void Form::beSigned(Bureaucrat & obj)
 
 }
 
-void Form::execute (Bureaucrat const & executor) const
-{
-	if (this->_gradeToExec < executor.getGrade())
-		throw Form::GradeTooLowException();
-	if (this->_state == false)
-		throw Form::FormNotSignedException();
-}	
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
@@ -95,7 +86,7 @@ void Form::execute (Bureaucrat const & executor) const
 	{
 		return (this->_name);
 	}
-	int const  & Form::getGrade() const
+	int const  & Form::getGrade() constcv 
 	{
 		return (this->_sign_grade);
 	}

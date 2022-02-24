@@ -28,28 +28,17 @@ class Form
 			}
 	};
 
-	class FormNotSignedException : public std::exception
-	{
-		public:
-			virtual const char* what() const throw()
-			{
-				return ("Form not signed.");
-			}
-	};
-
 	public:
 
 		Form();
 		Form( Form const & src );
-		Form( std::string name, int grade, int gradeToExec );
-		virtual ~Form();
+		Form( std::string name, int grade );
+		~Form();
 
 		std::string const  & getName() const;
 		int const  & getGrade() const;
 		bool const & getState() const;
 		void beSigned(Bureaucrat & obj);
-		virtual void execute (Bureaucrat const & executor) const;
-		virtual std::string getTarget() = 0;
 
 		Form &		operator=( Form const & rhs );
 
@@ -57,8 +46,6 @@ class Form
 		std::string _name;
 		bool _state;
 		int _sign_grade;
-		int _gradeToExec;
-		std::string _target;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

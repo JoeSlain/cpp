@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Form.hpp"
+#include "Form.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -27,14 +27,13 @@ Form::Form( const Form & src )
 	*this = src;
 }
 
-Form::Form( std::string name, int grade, int gradeToExec ) : _name(name)
+Form::Form( std::string name, int grade ) : _name(name)
 {
-	if (grade < 1 || gradeToExec < 1)
+	if (grade < 1)
 		throw Form::GradeTooHighException();
-	if (grade > 150 || gradeToExec > 150)
+	if (grade > 150)
 		throw Form::GradeTooLowException();
 	this->_sign_grade = grade;
-	this->_gradeToExec = gradeToExec;
 }
 
 /*
@@ -80,28 +79,20 @@ void Form::beSigned(Bureaucrat & obj)
 
 }
 
-void Form::execute (Bureaucrat const & executor) const
-{
-	if (this->_gradeToExec < executor.getGrade())
-		throw Form::GradeTooLowException();
-	if (this->_state == false)
-		throw Form::FormNotSignedException();
-}	
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-	std::string const  & Form::getName() const
-	{
-		return (this->_name);
-	}
-	int const  & Form::getGrade() const
-	{
-		return (this->_sign_grade);
-	}
-	bool const & Form::getState() const
-	{
-		return (this->_state);
-	}
+		std::string const  & Form::getName() const
+		{
+			return (this->_name);
+		}
+		int const  & Form::getGrade() const
+		{
+			return (this->_sign_grade);
+		}
+		bool const & Form::getState() const
+		{
+			return (this->_state);
+		}
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:17:49 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 23:05:56 by jcueille         ###   ########.fr       */
+/*   Updated: 2021/09/23 21:06:11 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main()
 {
-	Form formTest("fortest", 10, 10);
+	Form formTest("fortest", 10);
 	Bureaucrat BureauTest("JO", 1);
 
 	BureauTest.signForm(formTest);

@@ -6,20 +6,18 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:28:27 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 17:40:47 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/24 22:10:27 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Form.hpp"
+#include "Form.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form()
+Form::Form() : _name(""), _state(false),  _sign_grade(0), _exec_grade(0)
 {
-	this->_state = false;
-	this->_name = "Default name";
 }
 
 Form::Form( const Form & src )
@@ -27,14 +25,12 @@ Form::Form( const Form & src )
 	*this = src;
 }
 
-Form::Form( std::string name, int grade, int gradeToExec ) : _name(name)
+Form::Form( std::string name, int sign_grade ) : _name(name), _sign_grade(sign_grade), 
 {
-	if (grade < 1 || gradeToExec < 1)
+	if (_exec__grade < 1 )
 		throw Form::GradeTooHighException();
-	if (grade > 150 || gradeToExec > 150)
+	if (_grade > 150)
 		throw Form::GradeTooLowException();
-	this->_sign_grade = grade;
-	this->_gradeToExec = gradeToExec;
 }
 
 /*
@@ -52,13 +48,9 @@ Form::~Form()
 
 Form &				Form::operator=( Form const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this == &rhs )
+		return *this;
 	this->_state = rhs._state;
-	this->_sign_grade = rhs._sign_grade;
-	this->_name = rhs._name;
 	return *this;
 }
 
@@ -79,14 +71,6 @@ void Form::beSigned(Bureaucrat & obj)
 	this->_state = true;
 
 }
-
-void Form::execute (Bureaucrat const & executor) const
-{
-	if (this->_gradeToExec < executor.getGrade())
-		throw Form::GradeTooLowException();
-	if (this->_state == false)
-		throw Form::FormNotSignedException();
-}	
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

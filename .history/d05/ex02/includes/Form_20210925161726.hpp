@@ -56,7 +56,7 @@ class Form
 	private:
 		std::string _name;
 		bool _state;
-		int _sign_grade;
+		int _requiredGrade;
 		int _gradeToExec;
 		std::string _target;
 };

@@ -1,10 +1,9 @@
-
 NAME = a.out
 
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
-SRCS_FILES = main.cpp Bureaucrat.cpp Form.cpp
+SRCS_FILES = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp  MateriaSource.cpp
 
 OBJS_PATH = ./obj/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS_FILES:.cpp=.o}}

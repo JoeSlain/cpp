@@ -1,4 +1,5 @@
-
+all:
+	clang++ -g main.cpp Bureaucrat.cpp Form.cpp
 NAME = a.out
 
 CC = clang++
