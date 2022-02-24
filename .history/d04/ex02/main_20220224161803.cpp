@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:04:34 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 16:18:14 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:18:03 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int main()
 	for (int i = 0; i < 100; i++)
 		std::cout << doggo->get_brain().getIdea(i) << std::endl;
 	delete doggo;
-	//Animal *Wrong_Animal = new Animal();
+	Animal *Wrong_Animal = new Animal();
 	return 0;
 }

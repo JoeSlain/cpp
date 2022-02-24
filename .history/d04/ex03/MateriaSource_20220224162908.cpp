@@ -35,9 +35,9 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
 	if ( this == &rhs )
 		return *this;
-	for (int i = 0; i < 4; i++)	
-		inventory[i] = rhs.inventory[i];
-	return *this;
+	for (int i = 0; i < 4; i++)
+		
+	inventory = rhs.inventory;
 }
 
 

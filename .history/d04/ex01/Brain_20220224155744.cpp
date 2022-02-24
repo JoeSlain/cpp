@@ -11,9 +11,10 @@ Brain::Brain()
 	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
 	{
-		std::stringstream out;
+	std::stringstream out;
 		out << i;
 		this->ideas[i] = "Idea" + out.str();
+		out.clear();
 	}
 }
 

@@ -7,11 +7,11 @@
 
 Brain::Brain()
 {
+	std::stringstream out;
 	std::cout << "Brain default constructor called." << std::endl;
 	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
 	{
-		std::stringstream out;
 		out << i;
 		this->ideas[i] = "Idea" + out.str();
 	}

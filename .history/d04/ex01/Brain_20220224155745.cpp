@@ -14,6 +14,7 @@ Brain::Brain()
 		std::stringstream out;
 		out << i;
 		this->ideas[i] = "Idea" + out.str();
+		out.clear();
 	}
 }
 

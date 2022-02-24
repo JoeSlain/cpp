@@ -60,7 +60,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->inventory[i] && this->inventory[i]->getType().compare(type))
+		if (this->inventory[i] && this->inventory[i].getType().compare(type))
 			return this->inventory[i]->clone();
 	}
 	return 0;

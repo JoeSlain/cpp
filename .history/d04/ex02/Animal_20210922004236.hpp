@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:11:14 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 16:12:44 by jcueille         ###   ########.fr       */
+/*   Updated: 2021/09/22 00:42:37 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Animal
 
 	public:
 
+		Animal();
 		Animal( Animal const & src );
 		virtual ~Animal();
 
@@ -30,7 +31,6 @@ class Animal
 		Animal &		operator=( Animal const & rhs );
 
 	protected:
-		Animal();
 		std::string type;
 };
 

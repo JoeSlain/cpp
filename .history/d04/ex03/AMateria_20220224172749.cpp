@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 13:20:04 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 17:27:54 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/24 17:27:49 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->type = rhs.type;
+		this->_type = rhs.;
 	}
 	return *this;
 }

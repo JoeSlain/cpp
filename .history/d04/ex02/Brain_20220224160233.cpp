@@ -1,5 +1,4 @@
 #include "Brain.hpp"
-#include <sstream>
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------

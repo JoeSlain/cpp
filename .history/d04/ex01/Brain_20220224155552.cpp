@@ -1,5 +1,4 @@
 #include "Brain.hpp"
-#include <sstream>
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -11,9 +10,8 @@ Brain::Brain()
 	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
 	{
-		std::stringstream out;
-		out << i;
-		this->ideas[i] = "Idea" + out.str();
+
+		this->ideas[i] = "Idea" + (char)i+48;
 	}
 }
 
