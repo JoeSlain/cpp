@@ -6,15 +6,15 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:17:49 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/25 16:36:51 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/25 13:21:37 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/Bureaucrat.hpp"
-#include "includes/Form.hpp"
-#include "includes/RobotomyRequestForm.hpp"
-#include "includes/PresidentialPardonForm.hpp"
-#include "includes/ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
 int main()
