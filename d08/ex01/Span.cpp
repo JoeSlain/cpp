@@ -78,21 +78,21 @@ int Span::longestSpan()
 		throw std::length_error("Array must contain at least 2 elements.");
 	min = this->_array[0];
 	max = this->_array[0];
-	for (auto &value : this->_array)
+	for (unsigned int i = 0; i < this->_n; i++)
 	{
-		if (value < min)
-			min = value;
-		if (value > max)
-			max = value;
+		if (_array[i] < min)
+			min = _array[i];
+		if (_array[i] > max)
+			max = _array[i];
 	}
 	return max - min;
 }
 
 void Span::print_vector()
 {	std::cout << "VECTOR" << std::endl;
-	for(auto &value : this->_array)
+	for (unsigned int i = 0; i < this->_n; i++)
 	{
-		std::cout << "|" << value << " |" << std::endl;
+		std::cout << _array[i] << std::endl;
 	}
 }
 

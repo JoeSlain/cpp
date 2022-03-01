@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:36:21 by jcueille          #+#    #+#             */
-/*   Updated: 2021/10/01 17:38:47 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/28 17:34:11 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,15 @@ void test(T cont, std::string type)
 
 int main()
 {
-	std::list<int> mylist = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-	std::vector<int> myvector = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-	std::deque<int> mydeque = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+	std::list<int> mylist;
+	std::vector<int> myvector; 
+	std::deque<int> mydeque;
+	for (int i = 0; i < 10; i++)
+	{
+		mylist.push_back(i);
+		mydeque.push_back(i);
+		myvector.push_back(i);
+	}
 	test(mylist, "LIST");
 	test(mydeque, "DEQUE");
 	test(myvector, "VECTOR");

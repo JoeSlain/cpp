@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 18:11:19 by jcueille          #+#    #+#             */
-/*   Updated: 2021/08/10 18:15:16 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/02/28 15:17:03 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@
 void randomChump( std::string name )
 {
 	Zombie chump(name);
-	chump._announce();
+	chump.announce();
 }
