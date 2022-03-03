@@ -1,7 +1,7 @@
 NAME = a.out
 
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wno-shadow
 
 SRCS_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJS_PATH = ./obj/

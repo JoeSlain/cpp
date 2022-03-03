@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 18:45:36 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/22 17:54:48 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:25:26 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	main()
 		Jumbo.attack("Test");
 		Jumbo.beRepaired(0);
 		Jumbo.attack("Test");
-		Jumbo.beRepaired(0);
+		Jumbo.beRepaired(10);
 		Jumbo.attack("Test");
-		Jumbo.beRepaired(0);
+		Jumbo.beRepaired(50);
 		Jumbo.attack("Test");
-		Jumbo.beRepaired(0);
+		Jumbo.beRepaired(100);
 		Jumbo.attack("Test");
 		Jumbo.beRepaired(0);
 		Jumbo.attack("Test");

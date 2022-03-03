@@ -1,2 +1,0 @@
-all:
-	clang++ -g -std=c++98 -Werror -Wall -Wextra main.cpp Caster.cpp

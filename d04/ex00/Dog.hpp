@@ -19,8 +19,6 @@ class Dog : public Animal
 
 		Dog &		operator=( Dog const & rhs );
 
-	private:
-
 };
 
 //std::ostream &			operator<<( std::ostream & o, Dog const & i );

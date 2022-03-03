@@ -1,16 +1,16 @@
 NAME = a.out
 
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 SRCS_FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
-
+HEADER_FILES = Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp WrongAnimal.hpp
 OBJS_PATH = ./obj/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS_FILES:.cpp=.o}}
 
 all: ${NAME}
 
-$(NAME): ${OBJS_PATH} ${OBJS}
+$(NAME): ${OBJS_PATH} ${OBJS} ${HEADER_FILES}
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 
 ${OBJS_PATH}:

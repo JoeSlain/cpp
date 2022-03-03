@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 15:38:35 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/22 17:54:12 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:42:20 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ void FragTrap::attack(std::string const & target)
 	}
 	if (this->get_energy_pts())
 	{
-		std::cout << "ClapTrap " << this->get_name() << " attack " << target << ", causing " << this->get_attack_dmg() << " points of damage!" << std::endl;
+		std::cout << "FragTrap " << this->get_name() << " attack " << target << ", causing " << this->get_attack_dmg() << " points of damage!" << std::endl;
 		this->set_energy_pts(this->get_energy_pts() - 1);
 	}
-	std::cout << "FragTrap " << this->get_name() << " attack " << target << ", causing " << this->get_attack_dmg() << " points of damage!" << std::endl;
 }

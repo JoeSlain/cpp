@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 18:24:18 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/22 15:28:09 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:28:58 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_hitpoints == 0)
 	{
-		std::cout << this->_name << " can't repaired when already dead." << std::endl;
+		std::cout << this->_name << " can't repair when already dead." << std::endl;
 		return ;
 	}
 	if (this->_energy_pts == 0)

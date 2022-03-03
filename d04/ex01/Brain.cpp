@@ -8,7 +8,7 @@
 Brain::Brain()
 {
 	std::cout << "Brain default constructor called." << std::endl;
-	this->ideas = new std::string[100];
+//	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
 	{
 		std::stringstream out;
@@ -30,7 +30,7 @@ Brain::Brain( const Brain & src )
 
 Brain::~Brain()
 {
-	delete[] this->ideas;
+	//delete[] this->ideas;
 	std::cout << "Brain destructor called." << std::endl;
 }
 
@@ -45,7 +45,11 @@ Brain &				Brain::operator=( Brain const & rhs )
 	//{
 		//this->_value = rhs.getValue();
 	//}
-	this->ideas = rhs.ideas;
+	//this->ideas = rhs.ideas;
+	for (int i = 0; i < 100; i++)
+	{
+		this->ideas[i] = rhs.ideas[i];
+	}
 	return *this;
 }
 

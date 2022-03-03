@@ -17,10 +17,6 @@ class Ice : public AMateria
 		virtual AMateria* clone() const;
 		virtual void use(ICharacter& target);
 
-	private:
-
 };
-
-//std::ostream &			operator<<( std::ostream & o, Ice const & i );
 
 #endif /* ************************************************************* ICE_H */

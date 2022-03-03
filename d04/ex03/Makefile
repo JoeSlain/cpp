@@ -1,7 +1,7 @@
 NAME = a.out
 
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
+CFLAGS = -Wall -Wextra  -std=c++98 
 
 SRCS_FILES = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp  MateriaSource.cpp
 

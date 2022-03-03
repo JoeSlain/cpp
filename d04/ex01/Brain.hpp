@@ -19,7 +19,7 @@ class Brain
 		Brain &		operator=( Brain const & rhs );
 
 	protected:
-		std::string *ideas;
+		std::string ideas[100];
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 13:35:34 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/22 13:54:43 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:53:02 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 */
 
 Ice::Ice() : AMateria("ice")
-{
-}
+{}
 
 Ice::Ice( const Ice & src )
 {
@@ -31,8 +30,7 @@ Ice::Ice( const Ice & src )
 */
 
 Ice::~Ice()
-{
-}
+{}
 
 
 /*

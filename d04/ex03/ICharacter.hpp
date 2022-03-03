@@ -18,13 +18,6 @@ class ICharacter
 		virtual void equip(AMateria* m) = 0;
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
-
-	protected:
-		std::string name;
-
-
 };
-
-//std::ostream &			operator<<( std::ostream & o, ICharacter const & i );
 
 #endif /* ****************************************************** ICHARACTER_H */

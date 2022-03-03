@@ -26,8 +26,9 @@ class Character : public ICharacter
 		Character &		operator=( Character const & rhs );
 
 	private:
-		AMateria *inventory[4];
-		std::string name;
+		AMateria	*inventory[4];
+		AMateria	*floor[4];
+		std::string	name;
 
 
 };
