@@ -55,7 +55,7 @@ class Form
 		Form &		operator=( Form const & rhs );
 
 	private:
-		std::string _name;
+		const std::string _name;
 		bool _state;
 		int _sign_grade;
 		int _exec_grade;

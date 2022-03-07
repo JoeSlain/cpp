@@ -5,13 +5,14 @@ CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 SRCS_FILES = main.cpp Bureaucrat.cpp Form.cpp
+HEADER_FILES = Bureaucrat.hpp Form.hpp
 
 OBJS_PATH = ./obj/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS_FILES:.cpp=.o}}
 
 all: ${NAME}
 
-$(NAME): ${OBJS_PATH} ${OBJS}
+$(NAME): ${OBJS_PATH} ${OBJS} ${HEADER_FILES} 
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 
 ${OBJS_PATH}:

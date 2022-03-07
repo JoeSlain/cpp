@@ -15,7 +15,7 @@ class Form
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("Grade too low.");
+				return ("grade too low.");
 			}
 	};
 
@@ -24,7 +24,7 @@ class Form
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("Grade too high.");
+				return ("grade too high.");
 			}
 	};
 
@@ -36,7 +36,8 @@ class Form
 		~Form();
 
 		std::string const  & getName() const;
-		int const  & getGrade() const;
+		int const  & getSignGrade() const;
+		int const  & getExecGrade() const;
 		bool const & getState() const;
 		void beSigned(Bureaucrat & obj);
 

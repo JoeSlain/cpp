@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:17:49 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 23:05:56 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:36:51 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 int main()
 {
-	Form formTest("fortest", 10, 10);
-	Bureaucrat BureauTest("JO", 1);
-
+	Form formTest("okTtest", 10, 10);
+	Form formTest2("wrongTest", 1, 1);
+	Bureaucrat BureauTest("Jo", 5);
+	
+	std::cout << formTest << std::endl;
 	BureauTest.signForm(formTest);
+	BureauTest.signForm(formTest2);
 }

@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:17:49 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/25 14:18:33 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:29:25 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,9 @@ int main()
 	
 	Bongo.makeForm("presidential pardon", "maison");
 	Bongo.makeForm("wrong", "maison");
+	{
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	}
 }

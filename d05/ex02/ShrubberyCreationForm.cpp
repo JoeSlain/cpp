@@ -45,18 +45,17 @@ ShrubberyCreationForm::~ ShrubberyCreationForm()
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void ShrubberyCreationForm::action() const
-{
-	//std::ofstream outfile(this->_target);
-
-	std::cout << "      /\\    \n     /\\*\\    \n    /\\O\\*\\    \n   /*/\\/\\/\\   \n  /\\O\\/\\*\\/\\  \n /\\*\\/\\*\\/\\/\\ \n/\\O\\/\\/*/\\/O/\\ \n      ||      \n      ||      \n      || " << std::endl;
-}
-
-
 void ShrubberyCreationForm::execute (Bureaucrat const & executor) const
 {
 	Form::execute(executor);
-	this->action();
+	std::ofstream outfile;
+
+	outfile.open(std::string(_target + "_shrubbery").c_str(), std::ios::out | std::ios::app);
+	if (outfile.is_open())
+	{
+		outfile << "      /\\    \n     /\\*\\    \n    /\\O\\*\\    \n   /*/\\/\\/\\   \n  /\\O\\/\\*\\/\\  \n /\\*\\/\\*\\/\\/\\ \n/\\O\\/\\/*/\\/O/\\ \n      ||      \n      ||      \n      || " << std::endl;
+		outfile.close();
+	}
 }
 
 /*

@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat() : _name("DefaultName"), _grade(1)
 {
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat & src )
+Bureaucrat::Bureaucrat( const Bureaucrat & src ) : _name(src._name)
 {
 	*this = src;
 }
@@ -37,12 +37,7 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	this->_grade = rhs.getGrade();
-	this->_name = rhs.getName();
+	this->_grade = rhs._grade;
 	return *this;
 }
 

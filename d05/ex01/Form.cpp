@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:28:27 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/24 23:37:48 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:35:37 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ Form &				Form::operator=( Form const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
-	o << i.getName() << ", signed: " << i.getState() << ", required grade: " << i.getGrade() << std::endl;
+	o << i.getName() << ", signed: " << i.getState() << ", required grade to sign: " << i.getSignGrade() << ", required grade to execute: "<< i.getExecGrade() <<  std::endl;
 	return o;
 }
 
@@ -79,9 +79,13 @@ void Form::beSigned(Bureaucrat & obj)
 	{
 		return (this->_name);
 	}
-	int const  & Form::getGrade() const
+	int const  & Form::getSignGrade() const
 	{
 		return (this->_sign_grade);
+	}
+	int const  & Form::getExecGrade() const
+	{
+		return (this->_exec_grade);
 	}
 	bool const & Form::getState() const
 	{

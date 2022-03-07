@@ -11,7 +11,7 @@ OBJS = ${addprefix ${OBJS_PATH}, ${SRCS_FILES:.cpp=.o}}
 
 all: ${NAME}
 
-$(NAME): ${OBJS_PATH} ${OBJS}
+$(NAME): ${OBJS_PATH} ${OBJS} ${HEADER_FILES}
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 
 ${OBJS_PATH}:

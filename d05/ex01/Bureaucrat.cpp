@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat() : _name("DefaultName"), _grade(1)
 {
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat & src )
+Bureaucrat::Bureaucrat( const Bureaucrat & src ) : _name(src._name)
 {
 	*this = src;
 }
@@ -42,7 +42,6 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 		//this->_value = rhs.getValue();
 	//}
 	this->_grade = rhs.getGrade();
-	this->_name = rhs.getName();
 	return *this;
 }
 
@@ -77,7 +76,7 @@ void Bureaucrat::signForm(Form & obj)
 	}
 	catch(const std::exception & e)
 	{
-		std::cerr << this->getName() << " cannot sign because " << e.what() << std::endl;
+		std::cerr << this->getName() << " cannot sign " << obj.getName() <<" because " << e.what() << std::endl;
 
 	}
 }

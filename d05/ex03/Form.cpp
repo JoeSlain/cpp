@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:28:27 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/25 13:03:05 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:32:21 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ Form &				Form::operator=( Form const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
-	o << i.getName() << ", signed: " << i.getState() << ", required grade to sign: " << i.getSignGrade() << ", required grade to execute: "<< i.getSignGrade() <<  std::endl;
+	o << i.getName() << ", signed: " << i.getState() << ", required grade to sign: " << i.getSignGrade() << ", required grade to execute: "<< i.getExecGrade() <<  std::endl;
 	return o;
 }
 
