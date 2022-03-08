@@ -39,17 +39,17 @@ Intern &				Intern::operator=( Intern const & rhs )
 }
 
 
-Form * Intern::CreateShrubberyCreationForm(std::string const & targetForm) const
+Form * Intern::newShrubbery(std::string const & targetForm) 
 {
 	return new ShrubberyCreationForm(targetForm);
 }
 
-Form * Intern::CreateRobotomyRequestForm(std::string const & targetForm) const
+Form * Intern::newRobotomy(std::string const & targetForm) 
 {
 	return new RobotomyRequestForm(targetForm);
 }
 
-Form * Intern::CreatePresidentialPardonForm(std::string const & targetForm) const
+Form * Intern::newPresidentialPardon(std::string const & targetForm) 
 {
 	return new PresidentialPardonForm(targetForm);
 }
@@ -57,6 +57,27 @@ Form * Intern::CreatePresidentialPardonForm(std::string const & targetForm) cons
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+Intern::t_intern const	Intern::tintern[3] = {
+	{"shrubbery creation" , &Intern::newShrubbery},
+	{"robotomy request" , &Intern::newRobotomy},
+	{"presidential pardon" , &Intern::newPresidentialPardon}
+};
+
+Form	*Intern::makeForm(std::string const type, std::string const target) const {
+	for (int i = 0; i < 3; i++)
+	{
+		if (Intern::tintern[i].cmp == type)
+		{
+			std::cout << "Intern creates " << type << std::endl;
+			return (Intern::tintern[i].fct(target));
+		}
+	}
+	std::cout << "Error: Form name not recognized" << std::endl;
+	return (NULL);
+}
+
+/*
 Form * Intern::makeForm(std::string name, std::string target)
 {
 	Form *ret;
@@ -75,7 +96,7 @@ Form * Intern::makeForm(std::string name, std::string target)
 	{	
 		for (int i = 0; i < 3; i++)
 		{
-			if (!(name.compare(arr[i])))
+			if (name == arr[i])
 			{
 				ret = (this->*methods_arr[i])(target);
 				std::cout << "Intern creates: " << *ret << std::endl;
@@ -89,7 +110,7 @@ Form * Intern::makeForm(std::string name, std::string target)
 		std::cerr << e.what() << std::endl;
 	}
 	return (NULL);
-}
+}*/
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 14:18:12 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/29 14:52:03 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/08 14:54:22 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	Data *test = new Data;
+	Data *test = new Data("Jo", "Paris", 25);
 	Data *deserialized;
 	uintptr_t serialized;
 

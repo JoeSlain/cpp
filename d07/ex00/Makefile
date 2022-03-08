@@ -1,16 +1,17 @@
 NAME = a.out
 
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 SRCS_FILES = main.cpp
+HEADER_FILES = whatever.hpp
 
 OBJS_PATH = ./obj/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS_FILES:.cpp=.o}}
 
 all: ${NAME}
 
-$(NAME): ${OBJS_PATH} ${OBJS}
+$(NAME): ${OBJS_PATH} ${OBJS} ${HEADER_FILES}
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 
 ${OBJS_PATH}:

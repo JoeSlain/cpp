@@ -59,7 +59,6 @@ class Form
 		bool _state;
 		int _sign_grade;
 		int _exec_grade;
-		std::string _target;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

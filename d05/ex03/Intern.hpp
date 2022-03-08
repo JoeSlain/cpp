@@ -16,10 +16,7 @@ class Intern
 		Intern( Intern const & src );
 		~Intern();
 
-		Form * makeForm(std::string name, std::string target);
-		Form * CreateShrubberyCreationForm(std::string const & targetForm) const;
-		Form * CreateRobotomyRequestForm(std::string const & targetForm) const;
-		Form * CreatePresidentialPardonForm(std::string const & targetForm) const;
+		Form * makeForm(const std::string name, const std::string target) const;
 		Intern &		operator=( Intern const & rhs );
 
 	class UnknownForm : public std::exception
@@ -30,7 +27,16 @@ class Intern
 				return ("Unknown form.");
 			}
 	};
-
+	private:
+		typedef struct	s_intern
+		{
+			std::string cmp;
+			Form		*(*fct)(std::string const &target);
+		}	t_intern;
+		static t_intern	const	tintern[3];
+		static Form		*newShrubbery(std::string const &target);
+		static Form		*newRobotomy(std::string const &target);
+		static Form		*newPresidentialPardon(std::string const &target);
 };
 
 #endif /* ********************************************************** INTERN_H */

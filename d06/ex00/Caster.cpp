@@ -6,11 +6,12 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 14:56:22 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/25 14:52:00 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/08 14:00:07 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Caster.hpp"
+#include <math.h>
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -94,9 +95,9 @@ void Caster::toDouble(char const *arg)
 void Caster::toInt(char const *arg)
 {
 	long int l;
-	std::cout << "int :";
+	std::cout << "int: ";
 	l = strtol(arg, 0, 10);
-	if (l > INT_MAX || l < INT_MIN)
+	if (l > INT_MAX || l < INT_MIN || !strcmp(arg, "nan") || isinf(atof(arg)))
 		std::cout << "impossible";
 	else
 		std::cout << static_cast<int>(l);
@@ -108,7 +109,7 @@ void Caster::toChar(char const *arg)
 
 	std::cout << "char: ";
 	i = atoi(arg);
-	if ((!i && strcmp("0", arg)) || i < CHAR_MIN || i > CHAR_MAX)
+	if ((!i && strcmp("0", arg)) || i < CHAR_MIN || i > CHAR_MAX )
 	{
 		std::cout << "impossible" << std::endl;
 		return ;
@@ -116,7 +117,7 @@ void Caster::toChar(char const *arg)
 	if (isprint(static_cast<char>(i)))
 		std::cout << static_cast<char>(i);
 	else
-		std::cout << "Not displayable.";
+		std::cout << "Non displayable.";
 	std::cout << std::endl;
 }
 

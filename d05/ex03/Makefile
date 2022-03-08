@@ -1,10 +1,12 @@
 NAME = a.out
 
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
+CC = c++
+CFLAGS = -Wall -Wextra -g -std=c++98 
 
-SRCS_FILES = main.cpp Bureaucrat.cpp Form.cpp ShubberryCreationForm.cpp \
+SRCS_FILES = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
 						PresidentialPardonForm.cpp RobotomyRequestForm.cpp Intern.cpp
+HEADER_FILES =  Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp \
+						PresidentialPardonForm.hpp RobotomyRequestForm.hpp Intern.hpp
 
 OBJS_PATH = ./obj/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS_FILES:.cpp=.o}}

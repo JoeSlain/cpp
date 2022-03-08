@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 14:48:13 by jcueille          #+#    #+#             */
-/*   Updated: 2021/09/29 14:51:26 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/08 15:00:01 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Data::Data()
+Data::Data() : _name("Default name"), _city("somewhere"), _age(100)
 {
-	this->_name = "Jo";
-	this->_city = "Paris";
-	this->_age = 50;
+}
+
+Data::Data(std::string name, std::string city, int age) : _name(name), _city(city), _age(age)
+{
 }
 
 Data::Data( const Data & src )
@@ -44,10 +45,6 @@ Data::~Data()
 
 Data &				Data::operator=( Data const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
 	this->_age = rhs._age;
 	this->_name = rhs._name;
 	this->_city = rhs._city;
@@ -67,10 +64,5 @@ Data* Data::deserialize(uintptr_t raw)
 {
 	return (reinterpret_cast<Data *>(raw));
 }
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
 
 /* ************************************************************************** */

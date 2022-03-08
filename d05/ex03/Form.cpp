@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:28:27 by jcueille          #+#    #+#             */
-/*   Updated: 2022/03/07 15:32:21 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:43:16 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 */
 void Form::beSigned(Bureaucrat & obj)
 {
+
 	if (obj.getGrade() >= this->_sign_grade)
 		throw Form::GradeTooLowException();
 	this->_state = true;

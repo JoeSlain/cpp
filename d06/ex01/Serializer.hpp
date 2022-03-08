@@ -11,6 +11,7 @@ class Data
 	public:
 
 		Data();
+		Data(std::string name, std::string city, int age);
 		Data( Data const & src );
 		~Data();
 
@@ -20,9 +21,8 @@ class Data
 		Data &		operator=( Data const & rhs );
 
 		std::string _name;
-		short _age;
 		std::string _city;
-	private:
+		short _age;
 };
 
 

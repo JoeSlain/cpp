@@ -6,7 +6,7 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 00:51:04 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/27 20:17:16 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/08 18:31:35 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	DispColorVar(T &c)
 int		main(void)
 {
 	std::string	str = "Hello";
-	char	array[][10] = {"First\n", "Second\n", "Third\n", "Lol\n"};
 	int		ints[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 42};
+	char	array[][10] = {"Test1\n", "Test2\n", "Test3\n"};
 
 	iter(str.c_str(), str.length(), &DispColorVar); std::cout << std::endl;
 std::cout << std::endl;

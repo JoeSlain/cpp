@@ -1,16 +1,16 @@
-NAME = a.out
+NAME = convert
 
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRCS_FILES = main.cpp Caster.cpp
-
+HEADER_FILES = Caster.hpp
 OBJS_PATH = ./obj/
 OBJS = ${addprefix ${OBJS_PATH}, ${SRCS_FILES:.cpp=.o}}
 
 all: ${NAME}
 
-$(NAME): ${OBJS_PATH} ${OBJS}
+$(NAME): ${OBJS_PATH} ${OBJS} ${HEADER_FILES}
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 
 ${OBJS_PATH}:

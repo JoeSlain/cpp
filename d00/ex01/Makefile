@@ -1,9 +1,9 @@
 NAME = Phonebook
-CC = clang++
+CC = c++
 FLAGS =  -Wall -Werror -Wextra -std=c++98 -g -fsanitize=address
 SRCS_FILES = main.cpp Phonebook.class.cpp Contact.class.cpp utils.cpp
 
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJS_PATH = ./obj/

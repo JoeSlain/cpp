@@ -45,18 +45,18 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 */
 void RobotomyRequestForm::action() const
 {
+
+}
+
+void RobotomyRequestForm::execute (Bureaucrat const & executor) const
+{
+	Form::execute(executor);
 	std::srand(std::time(NULL)); 
 	std::cout << "* Bzzz bzzzz *" << std::endl;
 	if (std::rand() % 2)
 		std::cout << "Robotomy success on " << this->_target << std::endl;
 	else
 		std::cout << "Robotomy failure on " << this->_target << std::endl;
-}
-
-void RobotomyRequestForm::execute (Bureaucrat const & executor) const
-{
-	Form::execute(executor);
-	this->action();
 }
 
 /*

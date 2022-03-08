@@ -6,13 +6,13 @@
 #    By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 17:57:18 by jcueille          #+#    #+#              #
-#    Updated: 2022/02/28 18:00:58 by jcueille         ###   ########.fr        #
+#    Updated: 2022/03/08 14:46:46 by jcueille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
 
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 SRCS_FILES = main.cpp mutantstack.cpp
