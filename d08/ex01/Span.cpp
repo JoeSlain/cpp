@@ -4,6 +4,10 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+Span::Span() : _n(0)
+{
+}
+
 Span::Span(unsigned int n) : _n(n)
 {
 }
@@ -43,6 +47,14 @@ Span &				Span::operator=( Span const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void Span::addRange(int a, const int b){
+	while (a <= b)
+	{
+		this->addNumber(a);
+		a++;
+	}
+}
+
 void Span::addNumber(int i)
 {
 	try
@@ -65,7 +77,13 @@ int Span::shortestSpan()
 	if (this->_array.size() < 2)
 		throw std::length_error("Array must contain at least 2 elements.");
 	std::sort(tmp.begin(), tmp.end());
-	return tmp[1] - tmp[0];
+	int res = tmp[1] - tmp[0];
+	for (unsigned int i = 2; i  < _n; i++)
+	{
+		if (tmp[i] - tmp[i - 1] < res)
+			res = tmp[i] - tmp[i - 1];
+	}
+	return res;
 
 }
 
@@ -88,17 +106,18 @@ int Span::longestSpan()
 	return max - min;
 }
 
+/*
+** --------------------------------- CORRECTION ---------------------------------
+*/
+
 void Span::print_vector()
 {	std::cout << "VECTOR" << std::endl;
-	for (unsigned int i = 0; i < this->_n; i++)
+	for (std::vector<int>::iterator a = _array.begin() ; a != _array.end() ; a++)
 	{
-		std::cout << _array[i] << std::endl;
+		std::cout << *a << std::endl;
 	}
 }
 
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
 
 
 /* ************************************************************************** */

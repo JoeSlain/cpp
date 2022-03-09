@@ -11,12 +11,13 @@ class Span
 {
 
 	public:
-
+		Span();
 		Span( unsigned int n);
 		Span( Span const & src );
 		~Span();
 
 		void addNumber(int i);
+		void addRange(const int a, const int b);
 		int shortestSpan();
 		int longestSpan();
 		void print_vector();

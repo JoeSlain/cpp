@@ -6,46 +6,94 @@
 /*   By: jcueille <jcueille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:36:21 by jcueille          #+#    #+#             */
-/*   Updated: 2022/02/28 17:34:11 by jcueille         ###   ########.fr       */
+/*   Updated: 2022/03/09 15:01:35 by jcueille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 #include <iostream>
+#include <string>
+# include <map>
+# include <vector>
+# include <list>
+# include <deque>
 
-template <typename T>
-void test(T cont, std::string type)
+int main(void)
 {
-	int arr[10];
+
+	std::cout << "** Int Vector **" << std::endl;
+
+	std::vector<int> intVector;
+
+	for (int i = 0; i <= 40; i++)
+		intVector.push_back(i);
+
+	try
+	{
+		easyfind(intVector, 25);
+		std::cout << "Found" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		easyfind(intVector, 40);
+		std::cout << "Found" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
+	try
+	{
+		easyfind(intVector, 50);
+		std::cout << "Found" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
-	std::cout << type << std::endl;
-	for(int i = 0; i < 10; i++)
-		arr[i] = 0 + ( std::rand() % ( 15 - 0 + 1 ) );
-	for(int i = 0; i < 10; i++)
-	{
-		std::cout << "testing for: " << arr[i] << " ";
-		if (easyfind(cont, arr[i]))
-			std::cout << "true";
-		else
-			std::cout << "false";
-		std::cout << std::endl;
-	}
-	std::cout << "----------" << std::endl;
-}
+	
 
-int main()
-{
-	std::list<int> mylist;
-	std::vector<int> myvector; 
-	std::deque<int> mydeque;
-	for (int i = 0; i < 10; i++)
-	{
-		mylist.push_back(i);
-		mydeque.push_back(i);
-		myvector.push_back(i);
+	std::cout << "** Int List **" << std::endl;
+
+	std::list<int> intList;
+
+	for (int i = 0; i <= 40; i++) {
+		intList.push_back(i);
 	}
-	test(mylist, "LIST");
-	test(mydeque, "DEQUE");
-	test(myvector, "VECTOR");
+
+	try
+	{
+		easyfind(intList, 25);
+		std::cout << "Found" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		easyfind(intList, 40);
+		std::cout << "Found" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
+	try
+	{
+		easyfind(intList, 50);
+		std::cout << "Found" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+
 	return 0;
 }
